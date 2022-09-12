@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion AndroidSdk.compileSdk
+    buildToolsVersion AndroidSdk.buildTools
+
+    defaultConfig {
+        applicationId AndroidClient.appId
+        minSdkVersion AndroidSdk.minSdk
+        targetSdkVersion AndroidSdk.targetSdk
+        versionCode AndroidClient.versionCode
+        versionName AndroidClient.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    //Local Libs
+    implementation project(':domain')
+    implementation project(':cache')
+    implementation project(':remote')
+    implementation project(':data')
+    implementation project(':core')
+
+
+    //Jetpack
+    implementation appDependencies.androidCore
+    implementation appDependencies.fragmentKTX
+    implementation appDependencies.appCompat
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.swipeRefereshLayout
+    implementation appDependencies.navigationFragmentKTX
+    implementation appDependencies.navigationUIKTX
+
+    //Material
+    implementation appDependencies.materialDesign
+
+    //hilt for DI
+    implementation appDependencies.hilt
+    kapt appDependencies.hiltCompiler
+
+    //image loading
+    implementation appDependencies.coil
+
+    //shimmer
+    implementation appDependencies.shimmer
+
+    //coroutines
+    implementation appDependencies.coroutinesAndroid
+
+    //testImplementation TestLibraries.testCore
+    testImplementation TestLibraries.archCore
+    testImplementation TestLibraries.junit
+    testImplementation TestLibraries.androidX
+    testImplementation TestLibraries.truth
+    testImplementation TestLibraries.coroutines
+
+}
+apply from: "../ktlint.gradle"
