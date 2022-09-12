@@ -1,0 +1,8 @@
+include ':core'
+include ':domain'
+include ':data'
+include ':remote'
+include ':cache'
+include ':app'
+rootProject.name = "Carbon Android"
+
