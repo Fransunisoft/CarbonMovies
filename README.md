@@ -43,4 +43,5 @@ to obtain data from the network.
 ## Testing
 Testing is done with Junit4 testing framework, and with Google Truth for making assertions.
 
-|<img src="screnshots/screen_1.png" width=200/>|<img src="screnshots/screen_2.png" width=200/>|<img src="screnshots/screen_3.png" width=200/>|
+## Screenshots
+|<img src="screnshoots/screen_1.png" width=200/>|<img src="screnshoots/screen_2.png" width=200/>|<img src="screnshoots/screen_3.png" width=200/>|
